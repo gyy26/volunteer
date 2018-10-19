@@ -55,6 +55,11 @@
 			<artifactId>mybatis-spring-boot-starter</artifactId>
 			<version>${mybatis-spring.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.volunteer</groupId>
+			<artifactId>volunteer-common-util</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<!--druid -->
 		<dependency>
 			<groupId>com.alibaba</groupId>

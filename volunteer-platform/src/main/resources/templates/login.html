@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>集鲜丰后台登录</title>
+    <link th:href="@{/static/images/favvicon.ico}" rel="icon" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/models.css}">
+    <script type="text/javascript" th:src="@{/js/jquery-1.11.1.min.js}"></script>
+    <style>
+        .img {
+            margin-right: 10px;
+            height: 36px;
+            margin-top: 1px;
+        }
+
+        .img_pointer {
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+<!--登录-->
+<div class="loginBox" style="background:url(../../static/images/loginpage.png) no-repeat center center;background-size:100% 100%;">
+    <div class="loginCon" style="height: 480px">
+        <h2>集鲜丰后台登录</h2>
+        <form id="formID" action="/doLogin" method="post">
+            <p class="loginTxt loginRole">
+                <select name="roleCode" class="selectpicker validate[required]">
+                    <option value="1">管理后台</option>
+                    <option value="3">子公司后台</option>
+                    <option value="7">合作伙伴后台</option>
+                    <option value="9">渠道商后台</option>
+                    <option value="8">业务员后台</option>
+                    <option value="2">批发商后台</option>
+                    <option value="4">采购商后台</option>
+                </select>
+            </p>
+            <p class="loginTxt"><input class="validate[required,custom[onlyNumberSp]]" name="telphone" type="text"
+                                       placeholder="请输入手机号"></p>
+            <p class="loginTxt"><input class="validate[required]" name="password" type="password" placeholder="请输入密码">
+            </p>
+            <!-- <div class="loginTxt">
+                  <input class="proving validate[required]" id="MsgCode" name="msgCode" type="text" placeholder="请输入验证码">
+                  <p class="provingImg"><img th:src="@{/loadverify}" class="get_yzm img img_pointer" alt="图片验证"
+                                             id="verify_codeid"></p>
+             </div>-->
+            <p class="loginBtn"><input name="loginBtn" id="loginBtn" type="button" value="登录"></p>
+        </form>
+        <p class="loginConTxt"><span class="right"><a href="/findPassword">忘记密码？</a></span></p>
+        <P class="loginTxt" id="msg" th:if="${'' != msg}">
+            <span style="color: red" th:text="${msg}"></span>
+            <script type="text/javascript">
+                setTimeout('$("#msg").hide("slow")', 3000);
+            </script>
+        </P>
+    </div>
+</div>
+<!--end 登录-->
+</body>
+<script type="text/javascript" th:src="@{/js/layer/layer.js}"></script>
+<!-- 验证 -->
+<script type="text/javascript" th:src="@{/js/validat/jquery.validationEngine.js}"></script>
+<script type="text/javascript" th:src="@{/js/validat/jquery.validationEngine-zh_CN.js}"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#formID").validationEngine({
+            addPromptClass: 'formError-text',
+            showArrow: false,
+            promptPosition: 'bottomLeft:10 0'
+        });
+
+        loadVerifyCode();//加载验证码
+        //defhiden();
+        bingClosetipsIndex();
+        // 回车事件
+        document.onkeydown = function (e) {
+            var ev = document.all ? window.event : e;
+            if (ev.keyCode == 13) {
+                var flag = $("#formID").validationEngine("validate");
+                if (!flag) {
+                    return false;
+                }
+                $("#formID").submit();
+            }
+        };
+
+        if (window != top) {
+            top.location.href = location.href;
+        }
+
+        $("input[type='telPhone'] ").val("");
+        $("input[type='password'] ").val("");
+
+        $("#loginBtn").click(function () {
+            var flag = $("#formID").validationEngine("validate");
+            if (!flag) {
+                return false;
+            }
+            $("#formID").submit();
+        });
+    });
+
+    function defhiden() {
+        $('.img').css('display', 'none');
+        $('span.get_yzm').click(function () {
+            $(this).css('display', 'none');
+            $('.img').css('display', 'block');
+        });
+    }
+
+    //点击跟新验证码
+    $("#verify_codeid").click(function () {
+        loadVerifyCode();
+    });
+
+    function loadVerifyCode() {
+        var url = "/loadverify";
+        $("#verify_codeid").attr("src", url + "?" + Date.parse(new Date()));
+    }
+
+    //处理得到焦点后去掉提示
+    function bingClosetipsIndex() {
+        $('#login_user').on("focus", function () {
+            if (tipsIndex) {
+                layer.close(tipsIndex);
+            }
+        });
+        $('#login_pwd').on("focus", function () {
+            if (tipsIndex) {
+                layer.close(tipsIndex);
+            }
+        });
+        $('#verify_codeval').on("focus", function () {
+            if (tipsIndex) {
+                layer.close(tipsIndex);
+            }
+        });
+    }
+</script>
+</html>

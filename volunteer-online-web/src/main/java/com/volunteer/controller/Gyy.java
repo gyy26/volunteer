@@ -29,4 +29,5 @@ public class Gyy {
     public String toHtml(){
         return "product/list";
     }
+
 }
