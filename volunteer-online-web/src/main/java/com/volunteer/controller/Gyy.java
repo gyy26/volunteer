@@ -24,4 +24,9 @@ public class Gyy {
         List<Gyy> list=this.testService.getName();
         return list;
     }
+
+    @RequestMapping("toHtml")
+    public String toHtml(){
+        return "product/list";
+    }
 }

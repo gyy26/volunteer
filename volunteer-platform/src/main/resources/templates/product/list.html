@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>天易商城</title>
+</head>
+
+<body>
+<!--头部公用-->
+<div id="top"></div>
+<!--个人中心-->
+<div class="mengban_nickname">
+	<div id="nickname">
+		<p class="n_p1">编辑基本资料adasdas<span id="n_guanbi">×</span></p>
+		<p class="n_p2">昵称：<input maxlength="6" id="nickname_02" type="text" placeholder="请输入昵称"/></p>
+		<p class="n_p4"></p>
+		<p class="n_p3"><button id="xiugai_yes">保存</button><button id="xiugai_no">取消</button></p>
+	</div>
+</div>
+<div class="c_main">
+	<div id="c_main">
+		<p class="c_title">
+			<a href="../home/index.html">首页</a>&gt;个人中心</p>
+		<div class="c_left">
+			<h2>全部功能</h2>
+			<p class="c_click">
+				<a class="c_a" href="usercenter.html">个人中心</a>
+			</p>
+			<p>
+				<a href="mine_jiangquan.html">我的奖券</a>
+			</p>
+			<p>
+				<a href="usercenter_safecenter.html">安全设置</a>
+			</p>
+			<p>
+				<a href="usercenter_address.html">地址管理</a>
+			</p>
+			<p>
+				<a href="usercenter_wodezhanghu.html">我的账户</a>
+			</p>
+			<h2>交易管理</h2>
+			<p>
+				<a href="orderHomepage.html">我的订单</a>
+			</p>
+			<h2>我的收藏</h2>
+			<p>
+				<a href="collectionGoods.html">收藏的商品</a>
+			</p>
+			<p>
+				<a href="consultation.html">收藏的资讯</a>
+			</p>
+		</div>
+		<div class="c_right">
+			<div class="user_info">
+				<div class="main2 clearfix">
+					<div id="caseId" class="caseUp preview lf">
+						<!--<a class="upfile upfile1" id="upfile1">-->
+						<img class="head_imgurl" data_up="true" src="../../img/a_head.png">
+						<!--<span class="change_img_font"></span>-->
+						<!--</a>-->
+						<!--<form id="DFORM" name="DFORM" method="POST" style ="display: none ;" action="http://123.207.157.207:28080/mobile/view/attachment/mobileUpload-salecircleattachment" enctype="multipart/form-data" >
+        <input type="hidden" id="type" name="type" value="1">
+        <input type="file" id="urlfile" name="urlfile">
+
+        <input type="submit" id="form_submit" value="上传图片"/>
+</form>-->
+						<!--<input type="file" name="urlfile" id="upload" style="visibility: hidden;">-->
+					</div>
+				</div>
+				<dl class="user_detail">
+					<dt class="ueser_name"><span id="nickname_01"></span><img class="xiugai_nickname" src="../../img/b_bianji.png"></dt>
+					<dd class="center_phone"></dd>
+				</dl>
+			</div>
+			<div class="c_order">
+				<p class="p1">我的订单<span id="center_order">查看全部</span></p>
+				<div id="order_xq">
+				</div>
+			</div>
+			<div class="c_shoucang">
+				<p class="p1">收藏的商品<span id="product_all">查看全部</span></p>
+				<div id="user_shoucang">
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--底部公用-->
+<div id="bottom">
+
+</div>
+<!-- 蒙版 -->
+<div class="mengban">
+	<div class="box">
+		<p class="box-a">查看物流</p>
+		<p id="guanbi"><img src="../../img/d_cha.png" alt=""></p>
+		<div class="box-b">
+			<div class="boxb-top">
+				<div class="boxB-topic">
+					<img src="../../img/d_big_pic.png" alt="">
+				</div>
+				<div class="boxB-Wz">
+					<p>配送企业：<span class="psqy">顺丰快递</span></p>
+					<p>快递单号：<span class="kddh">276530226</span></p>
+					<p>联系电话：<span class="lxdh">95338</span></p>
+				</div>
+			</div>
+			<div class="zhezhao">
+				<p><span class="zhezhao_a"></span>件商品</p>
+			</div>
+			<div class="boxb-btom">
+				<ul>
+				</ul>
+			</div>
+		</div>
+		<div class="sure-a">
+			<button id="sure">确定</button>
+		</div>
+	</div>
+</div>
+</body>
+<script th:src="@{/js/jquery.min.js}" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function () {
+		alert(1);
+    })
+</script>
+</html>
