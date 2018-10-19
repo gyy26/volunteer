@@ -1,0 +1,115 @@
+#当前激活的环境
+spring:
+  profiles:
+     active: dev
+
+server:
+  port: 17000
+
+#日志配置
+logging:
+  level:
+    org.apache.zookeeper: off
+    com.alibaba: off
+    com.vulcan.facade.mapper: debug
+
+#mybatis扫描xml路径
+mybatis:
+    type-aliases-package: com.vulcan.facade.entity
+
+#Mapper配置
+mapper:
+    mappers:
+        - com.vulcan.common.core.base.BaseMapper
+    not-empty: false
+    identity: MYSQL
+
+#pageHelper分页数据配置
+pagehelper:
+    helperDialect: mysql
+    reasonable: false
+    supportMethodsArguments: true
+    params: count=countSql
+
+---
+# 开发环境配置
+spring:
+  profiles: dev
+  #数据库配置
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/wo?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=true
+    username: root
+    password: q12345
+    driver-class-name: com.mysql.jdbc.Driver
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      filters: config
+      maxActive: 50
+      initialSize: 10
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      connectionProperties: config.decrypt=false;config.decrypt.key=MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJ319DlvVAwjJ9fIrORh5T80z9lhZTg+aL1jZk5FOfv8ffJg9MpXlLsSGisuWrg7do815f8nfOYnzk0SLsNFyGcCAwEAAQ==
+  http:
+     multipart:
+       max-file-size: 100Mb
+       max-request-size: 100Mb
+  #thymeleaf配置
+  thymeleaf:
+      prefix: classpath:/templates/
+      suffix: .html
+      mode: HTML5
+      cache: false
+
+#redis相关配置
+redis:
+  host: 192.168.0.252
+  database: 0
+  port: 6379
+  password:
+  timeout: 60000
+  pool:
+    max-wait: -1
+    max-idle: 500
+    min-idle: 0
+
+# dubbo
+dubbo:
+  provider:
+    application:
+      name: platform-provider
+      logger: slf4j
+    annotation:
+      package: com.vulcan.facade
+    protocol:
+      name: dubbo
+      port: 20204
+      accessLog: true
+    timeout: 600000
+    retries: 0
+    delay: -1
+    registry:
+        protocol: zookeeper
+        address: 127.0.0.1:2786,127.0.0.1:2787,127.0.0.1:2788
+        register: true
+        subscribe: true
+  consumer:
+    application:
+      name: platform-consumer
+    annotation:
+      package: com.vulcan
+    protocol:
+      name: dubbo
+    timeout: 60000
+    retries: 0
+    registry:
+      protocol: zookeeper
+      address: 127.0.0.1:2786,127.0.0.1:2787,127.0.0.1:2788
+      register: true
+      subscribe: true
