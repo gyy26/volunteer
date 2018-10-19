@@ -20,6 +20,7 @@ public class Gyy {
     @RequestMapping(value = "qu",method = RequestMethod.GET)
     @ResponseBody
     public List<Gyy> hello(){
+        //aaa
         List<Gyy> list=this.testService.getName();
         return list;
     }
