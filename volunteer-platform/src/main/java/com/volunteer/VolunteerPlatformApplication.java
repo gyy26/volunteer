@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan()
+@MapperScan(basePackages = "com.volunteer.mapper")
 public class VolunteerPlatformApplication {
 
 	public static void main(String[] args) {
