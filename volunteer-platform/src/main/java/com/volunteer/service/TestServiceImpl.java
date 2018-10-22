@@ -1,6 +1,6 @@
 package com.volunteer.service;
 
-import com.volunteer.controller.Gyy;
+import com.volunteer.entity.Gyy;
 import com.volunteer.mapper.GyyMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

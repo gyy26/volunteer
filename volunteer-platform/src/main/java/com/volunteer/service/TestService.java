@@ -1,6 +1,6 @@
 package com.volunteer.service;
 
-import com.volunteer.controller.Gyy;
+import com.volunteer.entity.Gyy;
 
 import java.util.List;
 

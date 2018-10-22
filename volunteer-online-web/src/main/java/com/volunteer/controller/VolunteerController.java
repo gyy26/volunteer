@@ -1,8 +1,10 @@
 package com.volunteer.controller;
 
+import com.volunteer.entity.Gyy;
 import com.volunteer.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,7 +16,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/gyy")
-public class Gyy {
+public class VolunteerController {
     @Autowired
     private TestService testService;
     @RequestMapping(value = "qu",method = RequestMethod.GET)
