@@ -1,9 +1,6 @@
 package com.volunteer.entity;
-import com.alibaba.druid.support.monitor.annotation.MTable;
-import lombok.Data;
 
 import javax.persistence.Column;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
