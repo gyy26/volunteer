@@ -16,6 +16,7 @@ public class UserInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         //进行业务处理
+        System.out.println("拦截");
         return false;
     }
 

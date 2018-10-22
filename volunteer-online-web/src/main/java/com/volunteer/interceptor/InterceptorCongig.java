@@ -18,6 +18,6 @@ public class InterceptorCongig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(userInterceptor).addPathPatterns("/**").excludePathPatterns("");
+        registry.addInterceptor(userInterceptor).addPathPatterns("/**").excludePathPatterns("/gyy/qu");
     }
 }

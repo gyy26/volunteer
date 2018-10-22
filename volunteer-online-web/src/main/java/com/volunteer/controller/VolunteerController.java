@@ -1,5 +1,6 @@
 package com.volunteer.controller;
 
+import com.volunteer.common.util.rediscache.ICacheService;
 import com.volunteer.entity.Gyy;
 import com.volunteer.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,17 +20,24 @@ import java.util.List;
 @RequestMapping("/gyy")
 public class VolunteerController {
     @Autowired
+    private ICacheService cacheService;
+    @Autowired
     private TestService testService;
     @RequestMapping(value = "qu",method = RequestMethod.GET)
     @ResponseBody
     public List<Gyy> hello(){
         //aaa
-        List<Gyy> list=this.testService.getName();
+//        List<Gyy> list=this.testService.getName();
+        List<Gyy> list=new ArrayList<>();
+        list.add(new Gyy());
         return list;
     }
 
     @RequestMapping("toHtml")
     public String toHtml(){
+        cacheService.set("key","abc");
+        System.out.println(cacheService.get("key"));
+        cacheService.remove("key");
         return "product/list";
     }
 
