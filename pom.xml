@@ -40,7 +40,7 @@
        <esc.version>4.2.0</esc.version>
        <sdk-core.version>3.4.0</sdk-core.version>
        <!-- apache common包 -->
-       <commons-io>2.4</commons-io>
+       <commons-io>2.7</commons-io>
        <commons-lang>3.4</commons-lang>
        <!-- poi -->
        <apache.poi.version>3.9</apache.poi.version>
