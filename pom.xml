@@ -31,7 +31,7 @@
        <!-- 验证码jar包版本 -->
        <patchca.version>0.0.1</patchca.version>
        <!-- fastjson版本 -->
-       <fastjson.version>1.2.28</fastjson.version>
+       <fastjson.version>1.2.83</fastjson.version>
        <!-- httpClient版本 -->
        <httpclient.version>4.5.3</httpclient.version>
        <httpcore.veresion>4.4.6</httpcore.veresion>
