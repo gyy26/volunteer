@@ -21,7 +21,7 @@
     <!-- druid连接池版本 -->
     <druid.version>1.1.2</druid.version>
     <!-- mysql连接版本 -->
-    <mysql-connector-java.version>5.1.41</mysql-connector-java.version>
+    <mysql-connector-java.version>8.0.28</mysql-connector-java.version>
     <!-- 通用mapper版本 -->
     <mapper.version>1.1.0</mapper.version>
     <!-- pageHelper版本 -->
