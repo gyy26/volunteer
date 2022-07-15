@@ -56,7 +56,7 @@
        <thymeleaf-extras-java8time.version>3.0.0.RELEASE</thymeleaf-extras-java8time.version>
        <thymeleaf-layout-dialect.version>2.2.0</thymeleaf-layout-dialect.version>
        <thymeleaf.attoparser.version>2.0.3.RELEASE</thymeleaf.attoparser.version>
-       <jackson.version>2.8.7</jackson.version>
+       <jackson.version>2.12.6.1</jackson.version>
    </properties>
 
     <!-- 模块管理 -->
